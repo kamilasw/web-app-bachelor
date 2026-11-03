@@ -1,2 +1,1 @@
-# ds-components-lib
-Design system components library for the bachelors degree project
+# Web Application Part of the Bachelor Engineering Project
