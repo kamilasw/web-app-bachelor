@@ -30,3 +30,10 @@ If you are developing a production application, we recommend enabling type-aware
 ```
 
 See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+
+## UI Components Documentation
+The reusable UI react components have a visual documentation in storybook.
+To run the storybook locally enter this command in the frontend directory:
+``` code
+npm run storybook
+```
