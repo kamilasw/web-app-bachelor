@@ -14,6 +14,15 @@
     --semantic-warning: var(--color-orange-800);
     --semantic-danger: var(--color-red-700);
     --semantic-discovery: var(--color-purple-700);
+
+    /*interactive states*/
+    --semantic-primary-pressed: var(--color-blue-900);
+    --semantic-neutral-hover: var(--color-gray-200);
+    --semantic-neutral-pressed: var(--color-gray-300);
+    --semantic-danger-hover: var(--color-red-800);
+    --semantic-danger-pressed: var(--color-red-900);
+    --semantic-discovery-hover: var(--color-purple-800);
+    --semantic-discovery-pressed: var(--color-purple-900);
 }
 
 @theme inline{
@@ -30,4 +39,15 @@
     --color-warning: var(--semantic-warning);
     --color-danger: var(--semantic-danger);
     --color-discovery: var(--semantic-discovery);
+
+    --color-primary-pressed: var(--semantic-primary-pressed);
+
+    --color-neutral-hover: var(--semantic-neutral-hover);
+    --color-neutral-pressed: var(--semantic-neutral-pressed);
+
+    --color-danger-hover: var(--semantic-danger-hover);
+    --color-danger-pressed: var(--semantic-danger-pressed);
+
+    --color-discovery-hover: var(--semantic-discovery-hover);
+    --color-discovery-pressed: var(--semantic-discovery-pressed);
 }
