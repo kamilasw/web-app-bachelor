@@ -64,6 +64,7 @@ export function Checkbox({
 
 			<Label
 				htmlFor={checkboxId}
+				required={rest.required}
 				className={clsx(disabled && 'opacity-50 cursor-not-allowed!')}
 			>
 				{label}
