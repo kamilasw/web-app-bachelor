@@ -1,0 +1,33 @@
+/*semantic style tokens - these can be used directly in the designs*/
+
+:root{
+    --semantic-background: var(--color-gray-100);
+    --semantic-surface: var(--color-white);
+    --semantic-text: var(--color-gray-1000);
+    --semantic-text-muted: var(--color-gray-700);
+    --semantic-border: var(--color-gray-300);
+
+    --semantic-primary: var(--color-blue-700);
+    --semantic-primary-hover: var(--color-blue-800);
+
+    --semantic-success: var(--color-green-700);
+    --semantic-warning: var(--color-orange-800);
+    --semantic-danger: var(--color-red-700);
+    --semantic-discovery: var(--color-purple-700);
+}
+
+@theme inline{
+    --color-background: var(--semantic-background);
+    --color-surface: var(--semantic-surface);
+    --color-foreground: var(--semantic-text);
+    --color-muted: var(--semantic-text-muted);
+    --color-border-default: var(--semantic-border);
+
+    --color-primary: var(--semantic-primary);
+    --color-primary-hover: var(--semantic-primary-hover);
+
+    --color-success: var(--semantic-success);
+    --color-warning: var(--semantic-warning);
+    --color-danger: var(--semantic-danger);
+    --color-discovery: var(--semantic-discovery);
+}

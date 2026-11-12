@@ -1,0 +1,36 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    develop:
+      watch:
+        # Synchronize React and Tailwind source files
+        - action: sync
+          path: ./frontend/src
+          target: /app/src
+          initial_sync: true
+
+        # Synchronize public assets
+        - action: sync
+          path: ./frontend/public
+          target: /app/public
+
+        # Synchronize HTML changes
+        - action: sync
+          path: ./frontend/index.html
+          target: /app/index.html
+
+        # Restart Vite after configuration changes
+        - action: sync+restart
+          path: ./frontend/vite.config.ts
+          target: /app/vite.config.ts
+
+        # Rebuild when dependencies change
+        - action: rebuild
+          path: ./frontend/package.json
+
+        - action: rebuild
+          path: ./frontend/package-lock.json

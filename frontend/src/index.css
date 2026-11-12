@@ -1,0 +1,4 @@
+@import "tailwindcss";
+@import "./styles/theme.css";
+@import "./styles/semantic.css";
+@import "./styles/global.css";
