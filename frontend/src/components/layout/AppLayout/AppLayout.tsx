@@ -5,7 +5,7 @@ import {
 	ChartNoAxesCombined,
 	LayoutDashboard,
 	ChartPie,
-	MessageSquare,
+	Astroid,
 	Settings,
 } from 'lucide-react';
 
@@ -14,6 +14,7 @@ import { Sidebar } from '../Sidebar/Sidebar';
 import type { SidebarItem } from '../Sidebar/Sidebar';
 import { Avatar } from '../../ui/Avatar/Avatar';
 import { Button } from '../../ui/Button/Button';
+import { APP_NAME } from '../../../constants/app';
 
 const items: SidebarItem[] = [
 	{ label: 'Home', to: '/', icon: House, end: true },
@@ -35,7 +36,7 @@ const items: SidebarItem[] = [
 	{
 		label: 'AI Assistant',
 		to: '/assistant',
-		icon: MessageSquare,
+		icon: Astroid,
 	},
 ];
 
@@ -49,7 +50,7 @@ export function AppLayout() {
 				left={
 					<div className="flex items-center gap-2 font-semibold">
 						<ChartNoAxesCombined className="size-6 text-primary" />
-						Customer Segmentation
+						{APP_NAME}
 					</div>
 				}
 				right={
