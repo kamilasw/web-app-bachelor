@@ -6,6 +6,7 @@ import { Login } from './pages/Login/Login';
 import { Register } from './pages/Register/Register';
 import { Settings } from './pages/Settings/Settings';
 import { Segmentation } from './pages/Segmentation/Segmentation';
+import { Widgets } from './pages/Widgets/Widgets';
 
 export default function App() {
 	return (
@@ -19,7 +20,7 @@ export default function App() {
 					<Route index element={<Home />} />
 					<Route path="segmentation" element={<Segmentation />} />
 					<Route path="dashboards" element={<h1>Dashboards</h1>} />
-					<Route path="widgets" element={<h1>Widgets</h1>} />
+					<Route path="widgets" element={<Widgets />} />
 					<Route path="assistant" element={<h1>AI Assistant</h1>} />
 					<Route path="settings" element={<Settings />} />
 				</Route>

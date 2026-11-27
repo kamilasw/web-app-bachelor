@@ -85,11 +85,7 @@ export function Segmentation() {
 		<div className="mx-auto flex max-w-6xl flex-col gap-6">
 			<div className="flex flex-wrap items-center justify-between gap-4">
 				<div>
-					<h1 className="text-2xl font-semibold">Segmentation</h1>
-
-					<p className="mt-1 text-muted">
-						Create and manage your segmentation runs.
-					</p>
+					<h1 className="text-2xl font-semibold">Your Segmentation Runs</h1>
 				</div>
 
 				<Button
@@ -102,8 +98,6 @@ export function Segmentation() {
 			</div>
 
 			<Card className="flex flex-col gap-4">
-				<h2 className="text-lg font-semibold">Segmentation runs</h2>
-
 				<div className="w-full max-w-sm">
 					<Input
 						label="Search runs"
