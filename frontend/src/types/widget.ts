@@ -13,3 +13,14 @@ export interface Widget {
 }
 
 export type WidgetFormData = Omit<Widget, 'widget_id' | 'client_id'>;
+
+export type WidgetSelection =
+	| {
+			type: 'cluster';
+			clusterId: number;
+	  }
+	| {
+			type: 'customer';
+			clusterId: number;
+			userId: string;
+	  };

@@ -74,3 +74,12 @@ export interface SegmentationResult {
 	clusters: Cluster[];
 	visualization: SegmentationVisualization;
 }
+
+export interface UserFeatures {
+	userId: string;
+	features: Record<string, number>;
+}
+
+export interface UserData {
+	users: UserFeatures[];
+}

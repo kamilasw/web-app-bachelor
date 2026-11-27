@@ -1,53 +1,85 @@
 /*semantic style tokens - these can be used directly in the designs*/
 
-:root{
-    --semantic-background: var(--color-gray-100);
-    --semantic-surface: var(--color-white);
-    --semantic-text: var(--color-gray-1000);
-    --semantic-text-muted: var(--color-gray-700);
-    --semantic-border: var(--color-gray-300);
+:root {
+	--semantic-background: var(--color-gray-100);
+	--semantic-surface: var(--color-white);
+	--semantic-text: var(--color-gray-1000);
+	--semantic-text-muted: var(--color-gray-700);
+	--semantic-border: var(--color-gray-300);
 
-    --semantic-primary: var(--color-blue-700);
-    --semantic-primary-hover: var(--color-blue-800);
+	--semantic-primary: var(--color-blue-700);
+	--semantic-primary-hover: var(--color-blue-800);
 
-    --semantic-success: var(--color-green-700);
-    --semantic-warning: var(--color-orange-800);
-    --semantic-danger: var(--color-red-700);
-    --semantic-discovery: var(--color-purple-700);
+	--semantic-success: var(--color-green-700);
+	--semantic-warning: var(--color-orange-800);
+	--semantic-danger: var(--color-red-700);
+	--semantic-discovery: var(--color-purple-700);
 
-    /*interactive states*/
-    --semantic-primary-pressed: var(--color-blue-900);
-    --semantic-neutral-hover: var(--color-gray-200);
-    --semantic-neutral-pressed: var(--color-gray-300);
-    --semantic-danger-hover: var(--color-red-800);
-    --semantic-danger-pressed: var(--color-red-900);
-    --semantic-discovery-hover: var(--color-purple-800);
-    --semantic-discovery-pressed: var(--color-purple-900);
+	/*interactive states*/
+	--semantic-primary-pressed: var(--color-blue-900);
+	--semantic-neutral-hover: var(--color-gray-200);
+	--semantic-neutral-pressed: var(--color-gray-300);
+	--semantic-danger-hover: var(--color-red-800);
+	--semantic-danger-pressed: var(--color-red-900);
+	--semantic-discovery-hover: var(--color-purple-800);
+	--semantic-discovery-pressed: var(--color-purple-900);
+
+	/* Data visualization */
+	--chart-1-default: var(--color-blue-700);
+	--chart-1-subtle: var(--color-blue-400);
+
+	--chart-2-default: var(--color-green-700);
+	--chart-2-subtle: var(--color-green-400);
+
+	--chart-3-default: var(--color-purple-700);
+	--chart-3-subtle: var(--color-purple-400);
+
+	--chart-4-default: var(--color-orange-700);
+	--chart-4-subtle: var(--color-orange-400);
+
+	--chart-5-default: var(--color-red-700);
+	--chart-5-subtle: var(--color-red-400);
 }
 
-@theme inline{
-    --color-background: var(--semantic-background);
-    --color-surface: var(--semantic-surface);
-    --color-foreground: var(--semantic-text);
-    --color-muted: var(--semantic-text-muted);
-    --color-border-default: var(--semantic-border);
+@theme inline {
+	--color-background: var(--semantic-background);
+	--color-surface: var(--semantic-surface);
+	--color-foreground: var(--semantic-text);
+	--color-muted: var(--semantic-text-muted);
+	--color-border-default: var(--semantic-border);
 
-    --color-primary: var(--semantic-primary);
-    --color-primary-hover: var(--semantic-primary-hover);
+	--color-primary: var(--semantic-primary);
+	--color-primary-hover: var(--semantic-primary-hover);
 
-    --color-success: var(--semantic-success);
-    --color-warning: var(--semantic-warning);
-    --color-danger: var(--semantic-danger);
-    --color-discovery: var(--semantic-discovery);
+	--color-success: var(--semantic-success);
+	--color-warning: var(--semantic-warning);
+	--color-danger: var(--semantic-danger);
+	--color-discovery: var(--semantic-discovery);
 
-    --color-primary-pressed: var(--semantic-primary-pressed);
+	--color-primary-pressed: var(--semantic-primary-pressed);
 
-    --color-neutral-hover: var(--semantic-neutral-hover);
-    --color-neutral-pressed: var(--semantic-neutral-pressed);
+	--color-neutral-hover: var(--semantic-neutral-hover);
+	--color-neutral-pressed: var(--semantic-neutral-pressed);
 
-    --color-danger-hover: var(--semantic-danger-hover);
-    --color-danger-pressed: var(--semantic-danger-pressed);
+	--color-danger-hover: var(--semantic-danger-hover);
+	--color-danger-pressed: var(--semantic-danger-pressed);
 
-    --color-discovery-hover: var(--semantic-discovery-hover);
-    --color-discovery-pressed: var(--semantic-discovery-pressed);
+	--color-discovery-hover: var(--semantic-discovery-hover);
+	--color-discovery-pressed: var(--semantic-discovery-pressed);
+
+	/* Data visualization */
+	--color-chart-1-default: var(--chart-1-default);
+	--color-chart-1-subtle: var(--chart-1-subtle);
+
+	--color-chart-2-default: var(--chart-2-default);
+	--color-chart-2-subtle: var(--chart-2-subtle);
+
+	--color-chart-3-default: var(--chart-3-default);
+	--color-chart-3-subtle: var(--chart-3-subtle);
+
+	--color-chart-4-default: var(--chart-4-default);
+	--color-chart-4-subtle: var(--chart-4-subtle);
+
+	--color-chart-5-default: var(--chart-5-default);
+	--color-chart-5-subtle: var(--chart-5-subtle);
 }

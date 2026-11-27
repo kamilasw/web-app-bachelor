@@ -7,13 +7,21 @@ import { Input } from '../../components/ui/Input/Input';
 import { Select } from '../../components/ui/Select/Select';
 
 import { WidgetsTable } from '../../components/widgets/WidgetsTable/WidgetsTable';
+import { WidgetPreviewModal } from '../../components/widgets/WidgetPreviewModal/WidgetPreviewModal';
+import { WidgetFormModal } from '../../components/widgets/WidgetFormModal/WidgetFormModal';
 
 import { WIDGET_TYPES } from '../../constants/widgets';
 
 import { widgets as mockWidgets } from '../../mocks/widgets';
 import { runs } from '../../mocks/runs';
+import { segmentationResults } from '../../mocks/results';
+import { userData } from '../../mocks/userData';
 
-import type { Widget } from '../../types/widget';
+import type { Widget, WidgetFormData } from '../../types/widget';
+
+import { Modal } from '../../components/ui/Modal/Modal';
+import { Toast } from '../../components/ui/Toast/Toast';
+import type { ToastProps } from '../../components/ui/Toast/Toast';
 
 export function Widgets() {
 	const [widgets, setWidgets] = useState(mockWidgets);
@@ -21,6 +29,16 @@ export function Widgets() {
 	const [search, setSearch] = useState('');
 	const [typeFilter, setTypeFilter] = useState('');
 	const [runFilter, setRunFilter] = useState('');
+
+	const [formOpen, setFormOpen] = useState(false);
+	const [widgetToEdit, setWidgetToEdit] = useState<Widget | null>(null);
+	const [widgetToView, setWidgetToView] = useState<Widget | null>(null);
+
+	const [widgetToDelete, setWidgetToDelete] = useState<Widget | null>(null);
+
+	const [toast, setToast] = useState<Omit<ToastProps, 'onDismiss'> | null>(
+		null,
+	);
 
 	const filteredWidgets = widgets.filter((widget) => {
 		const matchesName = widget.name
@@ -42,25 +60,87 @@ export function Widgets() {
 		setRunFilter('');
 	};
 
+	// Widget actions
 	const handleCreate = () => {
-		//todo - widget creation modal
+		setWidgetToEdit(null);
+		setFormOpen(true);
 	};
 
 	const handleView = (widget: Widget) => {
-		//todo - widget preview
-		console.log(widget);
+		setWidgetToView(widget);
 	};
 
 	const handleEdit = (widget: Widget) => {
-		//todo- widget edit
-		console.log(widget);
+		setWidgetToEdit(widget);
+		setFormOpen(true);
+	};
+
+	const handleCloseForm = () => {
+		setFormOpen(false);
+		setWidgetToEdit(null);
+	};
+
+	const handleSave = (data: WidgetFormData) => {
+		if (widgetToEdit) {
+			// todo: Update widget in Supabase.
+			setWidgets((previous) =>
+				previous.map((widget) =>
+					widget.widget_id === widgetToEdit.widget_id
+						? { ...widget, ...data }
+						: widget,
+				),
+			);
+
+			setToast({
+				title: 'Widget updated',
+				description: `"${data.name}" has been updated.`,
+				appearance: 'success',
+			});
+		} else {
+			const run = runs.find((run) => run.run_id === data.run_id);
+
+			if (!run) return;
+
+			const newWidget: Widget = {
+				widget_id: crypto.randomUUID(),
+				client_id: run.client_id,
+				...data,
+			};
+
+			// todo: Insert widget into Supabase.
+			setWidgets((previous) => [...previous, newWidget]);
+
+			setToast({
+				title: 'Widget created',
+				description: `"${data.name}" has been created.`,
+				appearance: 'success',
+			});
+		}
+
+		handleCloseForm();
 	};
 
 	const handleDelete = (widget: Widget) => {
-		//todo - deletion
+		setWidgetToDelete(widget);
+	};
+
+	const handleConfirmDelete = () => {
+		if (!widgetToDelete) return;
+
+		// TODO: Delete widget from Supabase.
 		setWidgets((previous) =>
-			previous.filter((item) => item.widget_id !== widget.widget_id),
+			previous.filter(
+				(widget) => widget.widget_id !== widgetToDelete.widget_id,
+			),
 		);
+
+		setToast({
+			title: 'Widget deleted',
+			description: `"${widgetToDelete.name}" has been deleted.`,
+			appearance: 'success',
+		});
+
+		setWidgetToDelete(null);
 	};
 
 	return (
@@ -137,6 +217,55 @@ export function Widgets() {
 					onDelete={handleDelete}
 				/>
 			</Card>
+
+			{formOpen && (
+				<WidgetFormModal
+					widget={widgetToEdit ?? undefined}
+					runs={runs}
+					results={segmentationResults}
+					onClose={handleCloseForm}
+					onSubmit={handleSave}
+				/>
+			)}
+
+			{widgetToView && (
+				<WidgetPreviewModal
+					widget={widgetToView}
+					result={segmentationResults[widgetToView.run_id]}
+					userData={userData}
+					onClose={() => setWidgetToView(null)}
+				/>
+			)}
+
+			{widgetToDelete && (
+				<Modal
+					open
+					title="Delete widget"
+					onClose={() => setWidgetToDelete(null)}
+					footer={
+						<>
+							<Button
+								appearance="default"
+								onClick={() => setWidgetToDelete(null)}
+							>
+								Cancel
+							</Button>
+
+							<Button appearance="danger" onClick={handleConfirmDelete}>
+								Delete
+							</Button>
+						</>
+					}
+				>
+					<p>
+						Are you sure you want to delete{' '}
+						<strong>{widgetToDelete.name}</strong>? This action cannot be
+						undone.
+					</p>
+				</Modal>
+			)}
+
+			{toast && <Toast {...toast} onDismiss={() => setToast(null)} />}
 		</div>
 	);
 }
