@@ -16,21 +16,21 @@ const sections = [
 		title: 'Segmentation',
 		description: 'Configure and run customer segmentation algorithms.',
 		icon: ChartNoAxesCombined,
-		action: 'View segmentation runs',
+		action: 'View',
 		path: '/segmentation',
 	},
 	{
 		title: 'Dashboards',
-		description: 'Create, view and manage your dashboards.',
+		description: 'Create, personalize with widgets and manage your dashboards.',
 		icon: LayoutDashboard,
-		action: 'View dashboards',
+		action: 'View',
 		path: '/dashboards',
 	},
 	{
 		title: 'Widgets',
 		description: 'Create and manage reusable data visualization charts.',
 		icon: ChartPie,
-		action: 'View widgets',
+		action: 'View',
 		path: '/widgets',
 	},
 	{
@@ -69,7 +69,7 @@ export function Home() {
 						<Card
 							key={section.title}
 							bordered
-							className="flex flex-col items-start gap-4"
+							className="flex flex-row items-center gap-4"
 						>
 							<section.icon className="size-6 text-primary" />
 

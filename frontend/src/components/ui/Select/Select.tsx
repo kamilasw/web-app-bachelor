@@ -57,10 +57,13 @@ const optionStyles = clsx(
 	'[&_option]:text-foreground',
 	'[&_option]:cursor-pointer',
 
-	'[&_option:hover]:bg-neutral-hover',
-	'[&_option:focus]:bg-neutral-hover',
-	'[&_option:checked]:bg-neutral-hover',
-	'[&_option:checked]:text-primary',
+	'[&_option:enabled:hover]:bg-neutral-hover',
+	'[&_option:enabled:focus-visible]:outline-2',
+	'[&_option:enabled:focus-visible]:outline-primary',
+	'[&_option:enabled:active]:bg-neutral-pressed',
+
+	'[&_option:enabled:checked]:bg-neutral-hover',
+	'[&_option:enabled:checked]:text-primary',
 
 	'[&_option:disabled]:text-muted',
 	'[&_option:disabled]:cursor-not-allowed',
@@ -124,7 +127,7 @@ export function Select({
 					)}
 				>
 					{placeholder && (
-						<option value="" disabled>
+						<option value="" disabled hidden>
 							{placeholder}
 						</option>
 					)}

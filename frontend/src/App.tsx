@@ -4,6 +4,8 @@ import { Home } from './pages/Home/Home';
 import { AuthLayout } from './components/layout/AuthLayout/AuthLayout';
 import { Login } from './pages/Login/Login';
 import { Register } from './pages/Register/Register';
+import { Settings } from './pages/Settings/Settings';
+import { Segmentation } from './pages/Segmentation/Segmentation';
 
 export default function App() {
 	return (
@@ -15,11 +17,11 @@ export default function App() {
 				</Route>
 				<Route element={<AppLayout />}>
 					<Route index element={<Home />} />
-					<Route path="segmentation" element={<h1>Segmentation</h1>} />
+					<Route path="segmentation" element={<Segmentation />} />
 					<Route path="dashboards" element={<h1>Dashboards</h1>} />
 					<Route path="widgets" element={<h1>Widgets</h1>} />
 					<Route path="assistant" element={<h1>AI Assistant</h1>} />
-					<Route path="settings" element={<h1>Settings</h1>} />
+					<Route path="settings" element={<Settings />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>
