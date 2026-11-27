@@ -81,6 +81,7 @@ export function Settings() {
 							value={name}
 							onChange={(event) => setName(event.target.value)}
 							autoComplete="name"
+							required
 						/>
 					</div>
 
@@ -107,6 +108,7 @@ export function Settings() {
 							name="currentPassword"
 							type="password"
 							autoComplete="current-password"
+							required
 						/>
 
 						<Input
@@ -117,6 +119,7 @@ export function Settings() {
 							minLength={8}
 							hint="Use at least 8 characters."
 							onChange={() => setPasswordError('')}
+							required
 						/>
 
 						<Input
@@ -126,6 +129,7 @@ export function Settings() {
 							autoComplete="new-password"
 							error={passwordError || undefined}
 							onChange={() => setPasswordError('')}
+							required
 						/>
 					</div>
 

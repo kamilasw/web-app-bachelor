@@ -22,9 +22,21 @@ describe('Select', () => {
 	});
 
 	it('renders a disabled placeholder', () => {
-		render(<Select label="Select" options={options} placeholder="Choose..." />);
+		render(
+			<Select
+				label="Select"
+				options={options}
+				placeholder="Choose..."
+				defaultValue=""
+			/>,
+		);
 
-		expect(screen.getByRole('option', { name: 'Choose...' })).toBeDisabled();
+		const select = screen.getByRole('combobox');
+		const placeholder = screen.getByText('Choose...');
+
+		expect(placeholder).toBeDisabled();
+		expect(placeholder).toHaveAttribute('hidden');
+		expect(select).toHaveValue('');
 	});
 
 	it('updates the selection and calls onChange', async () => {
